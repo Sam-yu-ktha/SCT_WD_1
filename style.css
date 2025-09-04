@@ -1,0 +1,107 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+nav.scrolled {
+  background: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav .logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00bcd4;
+}
+
+/* Sections */
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#home { background: #1abc9c; }
+#about { background: #3498db; }
+#services { background: #9b59b6; }
+#contact { background: #e74c3c; }
+
+/* Responsive: mobile menu */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  nav ul.active {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
